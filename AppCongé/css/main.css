@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+* {
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  margin: 0;
+}
+
+body {
+  background-image: url(https://image.freepik.com/free-photo/flat-lay-desktop-with-keyboard-calculator_23-2148397843.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body img {
+  margin-left: 252px;
+  margin-top: 21px;
+}
+
+body h4 {
+  color: rgb(248, 242, 242);
+  margin-left: 164px;
+  margin-top: -41px;
+}
+
+
+body .login .login__container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 58px;
+  padding-bottom: 40px;
+}
+
+body .login .login__container .login__form__container {
+  padding: 30px;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 2px 7px 17px -8px #000;
+  margin-left: 100px;
+  background-color: white;
+}
+
+body .login .login__container .login__form__container .login__check__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+body .login .login__container .login__form__container .btn {
+  display: block;
+  margin: auto;
+  border: 2px solid #000;
+  border-radius: 24px;
+  background-color: white;
+  color: #000;
+}
+
+body .login .login__container .login__form__container .btn:hover {
+  background: linear-gradient(to right, #fff 0%, #000 100%) !important;
+  color: white !important;
+  border: 2px solid #000 !important;
+}
+
+body .login .login__container .login__title__container {
+  text-align: center;
+  background: linear-gradient(to right, #fff 0%, #000 100%);
+  margin-left: 100px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+body .login .login__container .login__title__container p {
+  font-weight: bolder;
+  color: white;
+  margin-top: 5%;
+}
+
+body .login .login__container .login__register__container {
+  text-align: center;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+  padding-top: 24px;
+}
+
+
+.dropdownli{
+  font-size: 16px !important;
+}
