@@ -31,7 +31,7 @@ include('includes/connection.php');
     <section class="contenu salarié admin">
         <h1>Bienvenu sur le système de géstion des congés !</h1>
         <div class="formaddsal">
-            <h4>Information des employés</h4>
+            <h4>Mettre à jour les infos des salariés</h4>
             
         </div>
     </section>

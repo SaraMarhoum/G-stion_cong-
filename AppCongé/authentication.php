@@ -28,7 +28,8 @@
             
         }  
         else{  
-            echo "<h1> Login failed. Invalid username or password.</h1>";  
+            // echo "<h1> Login failed. Invalid username or password.</h1>";
+            header('Location: index.php?erreur=Erreurdenonnection') ; 
         }
 
         ////write the query for connection infos for salarié

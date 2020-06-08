@@ -11,7 +11,7 @@
         <li class="dropdown-btn"><a href="#"><i class="fas fa-users"></i>Salariés<i class="fa fa-caret-down"></i></a>
         </li>
         <div class="dropdown-container">
-            <li><a href="addsalarié.php" class="dropdownli" >Ajouter un salarié</a></li>
+            <li><a href="addsalarie.php" class="dropdownli" >Ajouter un salarié</a></li>
             <li><a href="managesalarié.php" class="dropdownli" >Gérer les salariés</a></li>
         </div>
         <li class="dropdown-btn"><a href="#"><i class="fas fa-desktop"></i>Congés<i class="fa fa-caret-down"></i></a>

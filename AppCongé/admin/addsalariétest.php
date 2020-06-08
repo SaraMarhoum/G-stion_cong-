@@ -22,15 +22,6 @@ mysqli_query($con,$sql);
 
 }
 
-
-
-
-
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>

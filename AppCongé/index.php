@@ -41,6 +41,9 @@ include('includes/connection.php');
 
                 <a id="formlog"></a>
                 <form name="f1" action="authentication.php" method="POST" onsubmit="return validation()">
+                    <?php if(isset($_GET['erreur']) && $_GET['erreur'] == 'Erreurdenonnection'): ?>
+                    <p class="bg-danger"> Email ou mot de passe incorrect !</p>
+                    <?php endif; ?>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
                         <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
