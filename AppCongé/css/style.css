@@ -7,21 +7,23 @@
 }
 body {
   font-family: 'Roboto', sans-serif;
+  font-size: 16px !important;
 }
 .sidebar {
   position: fixed;
   left: -250px;
   width: 250px;
   height: 100%;
-  background: #242323;
+  background:#3281d1;
   transition: all .5s ease;
 }
 .sidebar header {
   font-size: 22px;
-  color: white;
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
   line-height: 70px;
   text-align: center;
-  background: #2a2b2c;
+  background: #3281d1;
   user-select: none;
 }
 .sidebar ul a{
@@ -30,7 +32,8 @@ body {
   width: 100%;
   line-height: 65px;
   font-size: 20px;
-  color: white;
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
   padding-left: 40px;
   box-sizing: border-box;
   border-bottom: 1px solid black;
@@ -48,7 +51,7 @@ ul li:hover a{
 }
 label #btn,label #cancel{
   position: absolute;
-  background: #000000;
+  background: #5294d6;
   border-radius: 3px;
   cursor: pointer;
 }
@@ -84,7 +87,7 @@ label #cancel{
   margin-left: 250px;
 }
 section{
-  background: url(https://mixcom.tv/wp-content/uploads/2015/02/Abstract-Background-White.jpg) no-repeat;
+  background: url(https://image.freepik.com/vecteurs-libre/abstrait-vague-bleue-blanche_41814-377.jpg) no-repeat;
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -101,7 +104,7 @@ section{
 
 .dropdown-container {
   display: none;
-  background-color: #262626;
+  background-color: #5294d6;
   padding-left: 8px;
 }
 
@@ -128,4 +131,93 @@ section{
 
 .btn{
   margin-left: 860px;
+}
+
+
+
+
+/* modif employee table */
+
+
+
+
+table{
+  width: 78%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  text-align: left;
+}
+tr {
+  border-bottom: 1px solid #cbcbcb;
+}
+th, td{
+  border: none;
+  height: 30px;
+  padding: 2px;
+}
+tr:hover {
+  background: #F5F5F5;
+}
+
+/* form {
+  width: 45%;
+  margin: 50px auto;
+  text-align: left;
+  padding: 20px; 
+  border: 1px solid #bbbbbb; 
+  border-radius: 5px;
+} */
+
+.input-group {
+  margin: 10px 0px 10px 0px;
+}
+.input-group label {
+  display: block;
+  text-align: left;
+  margin: 3px;
+}
+.input-group input {
+  height: 30px;
+  width: 93%;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+.btn {
+  padding: 10px;
+  font-size: 15px;
+  color: white;
+  background: #5F9EA0;
+  border: none;
+  border-radius: 5px;
+}
+.edit_btn {
+  text-decoration: none;
+  padding: 2px 5px;
+  background: rgb(49, 145, 209);
+  color: white;
+  border-radius: 3px;
+}
+
+.del_btn {
+  text-decoration: none;
+  padding: 2px 5px;
+  color: white;
+  border-radius: 3px;
+  background: #f11616;
+}
+.msg {
+  margin: 30px auto; 
+  padding: 10px; 
+  border-radius: 5px; 
+  color: #3c763d; 
+  background: #dff0d8; 
+  border: 1px solid #3c763d;
+  width: 50%;
+  text-align: center;
+}
+
+.hiden{
+  display: none;
 }

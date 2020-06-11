@@ -12,13 +12,19 @@ if (!empty($_POST)) {
     $telemp = $_POST['telemployé'];
     $emailemp = $_POST['mailemployé'];
     $mdpemp = $_POST['mdpemployé'];
+    $hashed_pass = password_hash($mdpemp,PASSWORD_DEFAULT);
     $grademp = $_POST['grademployé'];
     $servicemp = $_POST['servicemployé'];
 
     $sql = "INSERT INTO salarié (nom, prénom, CIN, tél, email, password, Service, Grade) 
-VALUES ('$nomemp', '$prénomemp', '$cinemp', '$telemp', '$emailemp', '$mdpemp', '$servicemp', '$grademp')";
+VALUES ('$nomemp', '$prénomemp', '$cinemp', '$telemp', '$emailemp', '$hashed_pass', '$servicemp', '$grademp')";
+$_SESSION['message'] = "Données ajoutées";
 
     mysqli_query($con, $sql);
+
+    // " . hash('sha256', $p) . "
+    // pass type text
+
 }
 
 ?>
@@ -38,7 +44,10 @@ VALUES ('$nomemp', '$prénomemp', '$cinemp', '$telemp', '$emailemp', '$mdpemp', 
 
   <!-- CSS link -->
   <link rel="stylesheet" href="../css/style.css">
+
 </head>
+
+<body>
 
 <body>
 
@@ -93,8 +102,9 @@ VALUES ('$nomemp', '$prénomemp', '$cinemp', '$telemp', '$emailemp', '$mdpemp', 
           <div class="form-group col-md-4">
             <label for="inputState">Grade</label>
             <select name="grademployé" id="inputState" class="form-control">
-              <option selected>étoile</option>
+              <option selected>1 étoile</option>
               <option>2 étoiles</option>
+              <option>3 étoiles</option>
             </select>
           </div>
           <div class="form-group col-md-4">
@@ -102,11 +112,13 @@ VALUES ('$nomemp', '$prénomemp', '$cinemp', '$telemp', '$emailemp', '$mdpemp', 
             <select name="servicemployé" id="inputState" class="form-control">
               <option selected>Hunter pro</option>
               <option>Assassin</option>
+              <option>Civil</option>
             </select>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Ajouter</button>
+        <button type="submit" class="btn btn-primary" name="save">Ajouter</button>
       </form>
+
     </div>
   </section>
 
@@ -122,3 +134,4 @@ VALUES ('$nomemp', '$prénomemp', '$cinemp', '$telemp', '$emailemp', '$mdpemp', 
 </body>
 
 </html>
+
