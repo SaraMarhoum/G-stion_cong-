@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-// error_reporting(0);
 include('includes/connection.php');
 
 
@@ -48,11 +47,11 @@ include('includes/connection.php');
                     
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
-                        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        <input type="email" name="email" class="form-control" required id="email" aria-describedby="emailHelp">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Mot de passe</label>
-                        <input type="password" name="pass" class="form-control" id="pass">
+                        <input type="password" name="pass" class="form-control" required id="pass">
                     </div><br>
 
                     <div class="login__check__container">
@@ -76,7 +75,7 @@ include('includes/connection.php');
         </div>
     </section>
 
-    <script>
+    <!-- <script>
         function validation() {
             var id = document.f1.email.value;
             var ps = document.f1.pass.value;
@@ -94,7 +93,7 @@ include('includes/connection.php');
                 }
             }
         }
-    </script>
+    </script> -->
     
 
 </body>

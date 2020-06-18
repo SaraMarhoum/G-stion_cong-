@@ -12,18 +12,18 @@ if (!empty($_POST)) {
     $telemp = $_POST['telemployé'];
     $emailemp = $_POST['mailemployé'];
     $mdpemp = $_POST['mdpemployé'];
-    $hashed_pass = password_hash($mdpemp,PASSWORD_DEFAULT);
+    
     $grademp = $_POST['grademployé'];
     $servicemp = $_POST['servicemployé'];
 
     $sql = "INSERT INTO salarié (nom, prénom, CIN, tél, email, password, Service, Grade) 
-VALUES ('$nomemp', '$prénomemp', '$cinemp', '$telemp', '$emailemp', '$hashed_pass', '$servicemp', '$grademp')";
-$_SESSION['message'] = "Données ajoutées";
+            VALUES ('$nomemp', '$prénomemp', '$cinemp', '$telemp', '$emailemp', ' $mdpemp', '$servicemp', '$grademp')";
+    $_SESSION['message'] = "Données ajoutées";
+    password_verify('$mdpemp','$hashed_pass');
 
     mysqli_query($con, $sql);
 
-    // " . hash('sha256', $p) . "
-    // pass type text
+
 
 }
 
@@ -54,7 +54,7 @@ $_SESSION['message'] = "Données ajoutées";
   <?php include('includes/sidenavbarad.php'); ?>
 
   <section class="contenu salarié admin">
-    <h1>Bienvenu sur le système de géstion des congés !</h1>
+    <h2>Géstion salariés</h2>
     <div class="formaddsal">
       <h4>Ajouter un employé</h4>
       <form name="" action="addsalarie.php" method="POST" onsubmit="return validation()">

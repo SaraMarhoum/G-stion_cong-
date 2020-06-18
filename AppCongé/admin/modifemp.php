@@ -1,9 +1,9 @@
 <?php
 
-// session_start();
+
 error_reporting(0);
 
-// include_once('../includes/connection.php');
+
 
 session_start();
 	$con = mysqli_connect('localhost', 'root', '', 'appconge');
@@ -22,7 +22,7 @@ if (isset($_GET['del'])) {
 	$id = $_GET['del'];
 	mysqli_query($con, "DELETE FROM salarié WHERE id=$id");
 	$_SESSION['message'] = "Employé suprimé"; 
-	// header('location: index.php');
+
 }
 
 if (isset($_GET['edit'])) {
@@ -52,8 +52,9 @@ if (isset($_POST['update'])) {
 
 	mysqli_query($con, "UPDATE salarié SET nom='$nom', prénom='$prénom', CIN='$cin', email='$email', tél='$tél' WHERE id=$id");
 	$_SESSION['message'] = "Employé modifié !"; 
-	// header('location: index.php');
+	
 }
+
 
 ?>
 
@@ -84,7 +85,7 @@ if (isset($_POST['update'])) {
     <?php include('includes/sidenavbarad.php'); ?>
 
     <section class="contenu salarié admin">
-        <h1>Bienvenu sur le système de géstion des congés !</h1>
+        <h2>Géstion salariés</h2>
         <div class="formaddsal">
             <h4>Mise à jour des salarié</h4>
 
@@ -97,44 +98,50 @@ if (isset($_POST['update'])) {
             </div>
             <?php endif ?>
 
-
             <?php $results = mysqli_query($con, "SELECT * FROM salarié"); ?>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>CIN</th>
-                        <th>Téléphone</th>
-                        <th>E-mail</th>
-                        <th>Service</th>
-                        <th>Grade</th>
-                        <th colspan="2">Action</th>
-                    </tr>
-                </thead>
+            <div class="search__container">
+                <input id="myInput" class="search__input" type="text" placeholder="Chercher un employé...">
+            </div><br>
+            
+            <div class="tablediv">
+                <table class="list">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>CIN</th>
+                            <th>Téléphone</th>
+                            <th>E-mail</th>
+                            <th>Service</th>
+                            <th>Grade</th>
+                            <th colspan="2">Action</th>
+                        </tr>
+                    </thead>
 
-                <?php while ($row = mysqli_fetch_array($results)) { ?>
-                <tr>
-                    <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['nom']; ?></td>
-                    <td><?php echo $row['prénom']; ?></td>
-                    <td><?php echo $row['CIN']; ?></td>
-                    <td><?php echo $row['tél']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $row['Service']; ?></td>
-                    <td><?php echo $row['Grade']; ?></td>
-                    <td>
-                        <a href="update.php?edit=<?php echo $row['id']; ?>" class="edit_btn" id="edit">Edit</a>
-                    </td>
-                    <td>
-                        <a href="modifemp.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
-                    </td>
-                </tr>
-                <?php } ?>
-            </table>
-
+                    <?php while ($row = mysqli_fetch_array($results)) { ?>
+                    <tbody id="myTable">
+                        <tr>
+                            <td><?php echo $row['id']; ?></td>
+                            <td><?php echo $row['nom']; ?></td>
+                            <td><?php echo $row['prénom']; ?></td>
+                            <td><?php echo $row['CIN']; ?></td>
+                            <td><?php echo $row['tél']; ?></td>
+                            <td><?php echo $row['email']; ?></td>
+                            <td><?php echo $row['Service']; ?></td>
+                            <td><?php echo $row['Grade']; ?></td>
+                            <td>
+                                <a href="update.php?edit=<?php echo $row['id']; ?>" class="edit_btn" id="edit">Edit</a>
+                            </td>
+                            <td>
+                                <a href="modifemp.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <?php } ?>
+                </table>
+            </div>
             <form class="hiden upd" method="post" action="modifemp.php">
 
                 <!-- // newly added field -->
@@ -146,17 +153,13 @@ if (isset($_POST['update'])) {
                 <input type="text" name="cin" value="<?php echo $cin; ?>">
                 <input type="text" name="email" value="<?php echo $email; ?>">
                 <input type="text" name="tél" value="<?php echo $tél; ?>">
-                <!-- <input type="text" name="service" value="<?php echo $service; ?>">
-                <input type="text" name="grade" value="<?php echo $grade; ?>"> -->
+             
 
                 <?php if ($update == true): ?>
                 <button class="btn" type="submit" name="update" style="background: #556B2F;">update</button>
                 <?php else: ?>
                 <button class="btn" type="submit" name="save">Save</button>
                 <?php endif ?>
-
-                <!-- <a href="addsalarie.php"><button>Ajouter un employé</button></a> -->
-                <!-- <a href="delatesal.php"><button>Suprimer</button></a> -->
 
 
             </form>
@@ -175,7 +178,16 @@ if (isset($_POST['update'])) {
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
     </script>
 
-
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
 
 
 </body>

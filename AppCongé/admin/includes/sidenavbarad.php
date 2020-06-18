@@ -7,7 +7,7 @@
     <header>LM Admin</header>
     <ul>
         <li><a href="admin.php"><i class="fas fa-qrcode"></i>Tableau de bord</a></li>
-        <li><a href="admin.php"><i class="fas fa-user"></i>Mon profile</a></li>
+        <li><a href="changermdp.php"><i class="fas fa-user"></i>Mon profile</a></li>
         <li class="dropdown-btn"><a href="#"><i class="fas fa-users"></i>Salariés<i class="fa fa-caret-down"></i></a>
         </li>
         <div class="dropdown-container">
@@ -17,10 +17,8 @@
         <li class="dropdown-btn"><a href="#"><i class="fas fa-desktop"></i>Congés<i class="fa fa-caret-down"></i></a>
         </li>
         <div class="dropdown-container">
-            <li><a class="dropdownli" href="#">Status des congés</a></li>
-            <li><a class="dropdownli" href="#">Congés en attente</a></li>
-            <li><a class="dropdownli" href="#">Congés approuvés</a></li>
-            <li><a class="dropdownli" href="#">Congés refusés</a></li>
+            <li><a class="dropdownli" href="statusconge.php">Status des congés</a></li>
+            <li><a class="dropdownli" href="congéattente.php">Congés en attente</a></li>
         </div>
         <li><a href="admin.php"><i class="fas fa-calendar-week"></i>Calendrier</a></li>
         <li><a href="../déconnection.php"><i class="far fa-arrow-alt-circle-left"></i>Déconnection</a></li>

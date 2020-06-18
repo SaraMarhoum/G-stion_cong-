@@ -1,9 +1,9 @@
 <?php
 
-// session_start();
+
 error_reporting(0);
 
-// include_once('../includes/connection.php');
+
 
 session_start();
 	$con = mysqli_connect('localhost', 'root', '', 'appconge');
@@ -22,7 +22,7 @@ if (isset($_GET['del'])) {
 	$id = $_GET['del'];
 	mysqli_query($con, "DELETE FROM salarié WHERE id=$id");
 	$_SESSION['message'] = "Employé suprimé"; 
-	// header('location: index.php');
+	
 }
 
 if (isset($_GET['edit'])) {
@@ -52,7 +52,7 @@ if (isset($_POST['update'])) {
 
 	mysqli_query($con, "UPDATE salarié SET nom='$nom', prénom='$prénom', CIN='$cin', email='$email', tél='$tél' WHERE id=$id");
 	$_SESSION['message'] = "Employé modifié !"; 
-	// header('location: index.php');
+	
 }
 
 ?>
@@ -84,9 +84,9 @@ if (isset($_POST['update'])) {
     <?php include('includes/sidenavbarad.php'); ?>
 
     <section class="contenu salarié admin">
-        <h1>Bienvenu sur le système de géstion des congés !</h1>
+        <h2>Géstion salariés</h2>
         <div class="formaddsal">
-            <h4>Mise à jour des salarié</h4>
+            <h4>Mise à jour des salariés</h4>
 
             <?php if (isset($_SESSION['message'])): ?>
             <div class="msg">
@@ -151,17 +151,14 @@ if (isset($_POST['update'])) {
                 <input type="text" name="email" value="<?php echo $email; ?>"><br>
                 <label>Téléphone</label>
                 <input type="text" name="tél" value="<?php echo $tél; ?>">
-                <!-- <input type="text" name="service" value="<?php echo $service; ?>">
-                <input type="text" name="grade" value="<?php echo $grade; ?>"> -->
-
+               
                 <?php if ($update == true): ?>
-                <button class="btn" type="submit" name="update" style="background: rgb(49, 145, 209);">update</button>
+                <button class="btn btnupd" type="submit" name="update" style="background: rgb(49, 145, 209);">update</button>
                 <?php else: ?>
                 <button class="btn" type="submit" name="save">Save</button>
                 <?php endif ?>
 
-                <!-- <a href="addsalarie.php"><button>Ajouter un employé</button></a> -->
-                <a href="modifemp.php"><button>Retour</button></a>
+                <a href="modifemp.php" class="btn btnback">Retour</a>
 
 
             </form>
